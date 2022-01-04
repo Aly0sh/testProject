@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление пользователя</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" aria-label="Tenth navbar example">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/">Главная страница</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="/add-user">Добавить пользователя</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main class="mt-5">
+    <br> <br>
+    <div class="col-6 mx-auto mb-4">
+        <h1 class="display-6 text-center">Добавление пользователя</h1>
+        <br>
+        <form action="/add-user" method="post">
+            <div class="mb-3 row">
+                <label for="fname" class="col-sm-3 col-form-label text-end">Имя</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="fname" name="fname" required>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="lname" class="col-sm-3 col-form-label text-end">Фамилия</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="lname" name="lname" required>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="bday" class="col-sm-3 col-form-label text-end">Дата рождения</label>
+                <div class="col-sm-9">
+                    <input type="date" class="form-control" id="bday" name="birthday" required>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="login" class="col-sm-3 col-form-label text-end">Логин</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="login" name="login" required>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="inputPassword" class="col-sm-3 text-end col-form-label">Пароль</label>
+                <div class="col-sm-9">
+                    <input type="password" class="form-control" id="inputPassword" name="password" required>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="about-me" class="col-sm-3 text-end col-form-label">О себе</label>
+                <div class="col-sm-9">
+                    <textarea class="form-control" id="about-me" rows="3" name="about_me"></textarea>
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label for="address" class="col-sm-3 text-end col-form-label">Адрес</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" id="address" name="address" required>
+                </div>
+            </div>
+
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button class="btn btn-dark me-md-2" type="submit">Добавить</button>
+                <button class="btn btn-danger" type="reset">Очистить</button>
+            </div>
+        </form>
+    </div>
+</main>
+
+
+<footer class="footer fixed-bottom py-3 bg-light">
+    <div class="container">
+        <span class="text-muted">© 2021 Alaken</span>
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark" aria-label="Tenth navbar example">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample08">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="">Главная страница</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/add-user">Добавить пользователя</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="mt-5">
+        <br> <br>
+        <h1 class="display-6 text-center">Список пользователей</h1>
+        <br>
+        <div class="container my-4">
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Имя</th>
+                    <th scope="col">Фамилия</th>
+                    <th scope="col">Посмотреть</th>
+                    <th scope="col">Редактировать</th>
+                    <th scope="col">Удалить</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="el : ${users}">
+                    <th scope="row" th:text="${el.id}"/>
+                    <td th:text="${el.fname}"/>
+                    <td th:text="${el.lname}"/>
+                    <td><a class="text-decoration-none text-dark" th:href="'/user/' + ${el.id}">Посмотреть</a></td>
+                    <td><a class="text-decoration-none text-warning" th:href="'/redact-user/' + ${el.id}">Редактировать</a></td>
+                    <td><form th:action="'/user-delete/'+${el.id}" th:method="delete"><button class="text-danger btn btn-link text-decoration-none pt-0" type="submit">Удалить</button></form></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+
+    <footer class="footer fixed-bottom py-3 bg-light">
+        <div class="container">
+            <span class="text-muted">© 2021 Alaken</span>
+        </div>
+    </footer>
+</body>
+</html>
